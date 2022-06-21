@@ -1,0 +1,63 @@
+{
+  "name": "@yankeeinlondon/link-builder",
+  "version": "1.0.0-alpha.1",
+  "description": "adds contextual classes and features to links in documents used in vite-plugin-md",
+  "keywords": [
+    "vitejs",
+    "builder",
+    "vite-plugin-md",
+    "vue"
+  ],
+  "homepage": "https://github.com/yankeeinlondon/link-builder#readme",
+  "bugs": {
+    "url": "https://github.com/yankeeinlondon/link-builder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yankeeinlondon/link-builder.git"
+  },
+  "license": "MIT",
+  "author": "Ken Snyder <ken@ken.net>",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "test": "vitest",
+    "watch": "tsup src/index.ts --format=esm,cjs --dts --watch"
+  },
+  "dependencies": {
+    "pathe": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "16",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitest/ui": "^0.15.2",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "esno": "^0.16.3",
+    "fp-ts": "^2.12.1",
+    "markdown-it": "^13.0.1",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.8.1",
+    "tsup": "^6.1.2",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.12",
+    "vite-plugin-md": "^0.17.2",
+    "vitest": "^0.15.2",
+    "vue": "^3.2.37"
+  },
+  "peerDependencies": {
+    "fp-ts": "^2.12.1",
+    "markdown-it": "^13.0.1",
+    "vite": "^2.9.12",
+    "vite-plugin-md": "^0.17.2"
+  }
+}
