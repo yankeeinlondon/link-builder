@@ -8,6 +8,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.29.0
   '@vitejs/plugin-vue': ^2.3.3
   '@vitest/ui': ^0.15.2
+  bump: ^0.2.5
   bumpp: ^8.2.1
   eslint: ^8.18.0
   eslint-config-prettier: ^8.5.0
@@ -18,18 +19,17 @@ specifiers:
   esno: ^0.16.3
   fp-ts: ^2.12.1
   markdown-it: ^13.0.1
-  pathe: ^0.3.0
   prettier: ^2.7.1
   ts-node: ^10.8.1
   tsup: ^6.1.2
   typescript: ^4.7.4
   vite: ^2.9.12
-  vite-plugin-md: ^0.17.2
+  vite-plugin-md: ^0.17.4
   vitest: ^0.15.2
   vue: ^3.2.37
 
 dependencies:
-  pathe: 0.3.0
+  markdown-it: 13.0.1
 
 devDependencies:
   '@antfu/ni': 0.16.2
@@ -39,6 +39,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.29.0_b5e7v2qnwxfo6hmiq56u52mz3e
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
   '@vitest/ui': 0.15.2
+  bump: 0.2.5
   bumpp: 8.2.1
   eslint: 8.18.0
   eslint-config-prettier: 8.5.0_eslint@8.18.0
@@ -48,13 +49,12 @@ devDependencies:
   eslint-plugin-unicorn: 42.0.0_eslint@8.18.0
   esno: 0.16.3
   fp-ts: 2.12.1
-  markdown-it: 13.0.1
   prettier: 2.7.1
   ts-node: 10.8.1_qqpsu5gwjto2muvbbvmj4ndcmu
   tsup: 6.1.2_mu66ohdiwyrigyorzidgf4bsdu
   typescript: 4.7.4
   vite: 2.9.12
-  vite-plugin-md: 0.17.2_vite@2.9.12+vue@3.2.37
+  vite-plugin-md: 0.17.4_wie7zz22o3tz6qyv6muewmoury
   vitest: 0.15.2_@vitest+ui@0.15.2
   vue: 3.2.37
 
@@ -582,11 +582,10 @@ packages:
       vue-demi: 0.13.1_vue@3.2.37
     dev: true
 
-  /@yankeeinlondon/happy-wrapper/2.1.0:
-    resolution: {integrity: sha512-Oa5BJheKEG6HCXNj0f0NGmo/YIUa7ynaVNhwTk39XCPAmow6lr0euq0MuXbfne86Sny2E4mCtcdds2YabDrBwg==}
+  /@yankeeinlondon/happy-wrapper/2.2.0:
+    resolution: {integrity: sha512-IwR7UMQNIjfBJP9ZJ02Ic8QmwnrIY9atQnxez/l0KUg6mw0fC5wxCpe1LbUkbpA4iDqfce+FFQBZv7tN4RFHhg==}
     dependencies:
-      callsites: 3.1.0
-      fp-ts: 2.12.1
+      callsites: 4.0.0
       happy-dom: 5.3.1
       native-dash: 1.22.1
     transitivePeerDependencies:
@@ -664,7 +663,6 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: true
 
   /array-includes/3.1.5:
     resolution: {integrity: sha512-iSDYZMMyTPkiFasVqfuAQnWAYcvO/SeBSCGKePoEthjp4LEMTe4uLc7b025o4jAZpHhihh8xPo99TNWUWWkGDQ==}
@@ -742,6 +740,11 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /bump/0.2.5:
+    resolution: {integrity: sha512-d4CZYvcP317+twjo7PhGd+EptYjvw83itgaxbJtJnHE64qH29qMtqAQ5vb3x3Su7WuaPjow88GBgp0FDBxbm8w==}
+    hasBin: true
+    dev: true
+
   /bumpp/8.2.1:
     resolution: {integrity: sha512-4tHKsWC2mqHQvdjZ4AXgVhS2xMsz8qQ4zYt87vGRXW5tqAjrYa/UJqy7s/dGYI2OIe9ghBdiFhKpyKEX9SXffg==}
     engines: {node: '>=10'}
@@ -784,6 +787,11 @@ packages:
   /callsites/3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
+    dev: true
+
+  /callsites/4.0.0:
+    resolution: {integrity: sha512-y3jRROutgpKdz5vzEhWM34TidDU8vkJppF8dszITeb1PQmSqV3DTxyV8G/lyO/DNvtE1YTedehmw9MPZsCBHxQ==}
+    engines: {node: '>=12.20'}
     dev: true
 
   /caseless/0.12.0:
@@ -1019,7 +1027,6 @@ packages:
   /entities/3.0.1:
     resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
     engines: {node: '>=0.12'}
-    dev: true
 
   /error-ex/1.3.2:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
@@ -2139,7 +2146,6 @@ packages:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
     dependencies:
       uc.micro: 1.0.6
-    dev: true
 
   /load-tsconfig/0.2.3:
     resolution: {integrity: sha512-iyT2MXws+dc2Wi6o3grCFtGXpeMvHmJqS27sMPGtV2eUu4PeFnG+33I8BlFK1t1NWMjOpcx9bridn5yxLDX2gQ==}
@@ -2210,11 +2216,9 @@ packages:
       linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
-    dev: true
 
   /mdurl/1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
-    dev: true
 
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -2502,10 +2506,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /pathe/0.3.0:
-    resolution: {integrity: sha512-3vUjp552BJzCw9vqKsO5sttHkbYqqsZtH0x1PNtItgqx8BXEXzoY1SYRKcL6BTyVh4lGJGLj0tM42elUDMvcYA==}
-    dev: false
-
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: true
@@ -2571,11 +2571,6 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
-
-  /prismjs/1.28.0:
-    resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
-    engines: {node: '>=6'}
     dev: true
 
   /process-nextick-args/2.0.1:
@@ -3184,7 +3179,6 @@ packages:
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
-    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -3220,9 +3214,10 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-plugin-md/0.17.2_vite@2.9.12+vue@3.2.37:
-    resolution: {integrity: sha512-6f59GfpluvpnCkmTPOEmjBJaLZtPL/TxogUKniZxyF2/Av6F8JtFzeXrJXX2O6Lwo9PryE+T/pijUAmJbmDZZA==}
+  /vite-plugin-md/0.17.4_wie7zz22o3tz6qyv6muewmoury:
+    resolution: {integrity: sha512-rlZq0DHtU4cb0UieL+HCphZOY5EPAh4Lj/o/Bs+KZLUNLXOyb3TWQQyCj3tUA7WFHrdEqRlZ9/C8YwP3EYTF5g==}
     peerDependencies:
+      markdown-it: ^13.0.1
       vite: ^2.9.9
     dependencies:
       '@rollup/pluginutils': 4.2.1
@@ -3231,11 +3226,10 @@ packages:
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
       '@vue/runtime-core': 3.2.37
       '@vueuse/core': 8.7.5_vue@3.2.37
-      '@yankeeinlondon/happy-wrapper': 2.1.0
+      '@yankeeinlondon/happy-wrapper': 2.2.0
       gray-matter: 4.0.3
       happy-dom: 5.3.1
       markdown-it: 13.0.1
-      prismjs: 1.28.0
       source-map-js: 1.0.2
       ts-morph: 15.1.0
       vite: 2.9.12
