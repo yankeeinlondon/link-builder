@@ -19,6 +19,7 @@ specifiers:
   esno: ^0.16.3
   fp-ts: ^2.12.1
   markdown-it: ^13.0.1
+  pathe: ^0.3.0
   prettier: ^2.7.1
   ts-node: ^10.8.1
   tsup: ^6.1.2
@@ -49,6 +50,7 @@ devDependencies:
   eslint-plugin-unicorn: 42.0.0_eslint@8.18.0
   esno: 0.16.3
   fp-ts: 2.12.1
+  pathe: 0.3.0
   prettier: 2.7.1
   ts-node: 10.8.1_qqpsu5gwjto2muvbbvmj4ndcmu
   tsup: 6.1.2_mu66ohdiwyrigyorzidgf4bsdu
@@ -2504,6 +2506,10 @@ packages:
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+    dev: true
+
+  /pathe/0.3.0:
+    resolution: {integrity: sha512-3vUjp552BJzCw9vqKsO5sttHkbYqqsZtH0x1PNtItgqx8BXEXzoY1SYRKcL6BTyVh4lGJGLj0tM42elUDMvcYA==}
     dev: true
 
   /pathval/1.1.1:
