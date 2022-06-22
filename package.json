@@ -1,6 +1,6 @@
 {
   "name": "@yankeeinlondon/link-builder",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "adds contextual classes and features to links in documents used in vite-plugin-md",
   "keywords": [
     "vitejs",
@@ -30,12 +30,14 @@
     "pathe": "^0.3.0"
   },
   "devDependencies": {
+    "@antfu/ni": "^0.16.2",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "16",
+    "@types/node": "^16.11.41",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vitest/ui": "^0.15.2",
+    "bumpp": "^8.2.1",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",

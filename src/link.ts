@@ -1,11 +1,11 @@
 /* eslint-disable unicorn/consistent-destructuring */
+import { createBuilder } from "vite-plugin-md";
 import { join } from "pathe";
 import { pipe } from "fp-ts/lib/function";
 import { normalizePath } from "vite";
-import type { LinkElement , LinkTransformer, LinkifyConfig, StringTransformer, WithTagAndBase } from "./types";
+import type { LinkElement , LinkTransformer, LinkOptions, StringTransformer, WithTagAndBase } from "./types";
 import { keys } from "./utils";
-import { createBuilder } from "vite-plugin-md";
-import MdLink from "./index";
+import { MdLink } from "./mdi";
 
 const staticRuleLookup = {
   externalLinkClass: /^https?:/,
@@ -38,7 +38,7 @@ function strTransform(transformer: string | StringTransformer | undefined, meta:
 }
 
 /** returns an array of classes based on the URL and configuration */
-const addClasses = (c: LinkifyConfig): LinkTransformer =>
+const addClasses = (c: LinkOptions): LinkTransformer =>
   /** returns an array of classes based on the URL and configuration */
   (lnk) => {
     const classes = keys(staticRuleLookup)
@@ -71,7 +71,7 @@ const addClasses = (c: LinkifyConfig): LinkTransformer =>
   };
 
 /** adds "target" and "rel" properties to links */
-const addTargetingAndRel = (c: LinkifyConfig): LinkTransformer =>
+const addTargetingAndRel = (c: LinkOptions): LinkTransformer =>
   /** adds "target" and "rel" properties to links */
   (lnk) => {
     if (isExternalLink(lnk)) {
@@ -87,7 +87,7 @@ const addTargetingAndRel = (c: LinkifyConfig): LinkTransformer =>
   };
 
 /** works on URL structure and messages based on config */
-const cleanupAndCloseOut = (c: LinkifyConfig): LinkTransformer =>
+const cleanupAndCloseOut = (c: LinkOptions): LinkTransformer =>
   /** works on URL structure and messages based on config */
   (lnk) => {
     if (isInternalLink(lnk)) {
@@ -128,7 +128,7 @@ const cleanupAndCloseOut = (c: LinkifyConfig): LinkTransformer =>
  * beyond the core use-cases
  */
 export const link = createBuilder("link", "parser")
-  .options<Partial<LinkifyConfig>>()
+  .options<Partial<LinkOptions>>()
   .initializer()
   // the approach for this builder is to inject a rule into the MarkdownIt
   // which will call our `transform` function on each instance of a link element
@@ -136,7 +136,7 @@ export const link = createBuilder("link", "parser")
   .handler(async (p, o) => {
     const { fileName, viteConfig: { base } } = p;
     // merge default settings with user settings
-    const options: LinkifyConfig = {
+    const options: LinkOptions = {
       rootDir: "src/pages",
       externalLinkClass: "external-link",
       internalLinkClass: "internal-link",

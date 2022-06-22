@@ -3,9 +3,7 @@ import { normalizePath } from "vite";
 import type Token from "markdown-it/lib/token";
 import type MarkdownIt from "markdown-it";
 import type { PluginSimple } from "markdown-it";
-import type { LinkElement, LinkOptions, NameValueTuple, WithTagAndBase } from "./types";
-
-
+import type { LinkElement, LinkConfig, NameValueTuple, WithTagAndBase } from "./types";
 
 /** converts the native attrs format to a dictionary style format */
 function toDictionary(t: Token, base: string): WithTagAndBase<LinkElement> {
@@ -21,7 +19,7 @@ function toDictionary(t: Token, base: string): WithTagAndBase<LinkElement> {
  * Minimalist Markdown-IT plugin that receives all _link_ DOM attributes
  * and runs a transform function on it.
  */
-export const plugin = (o: LinkOptions): PluginSimple => (
+export const MdLink = (o: LinkConfig): PluginSimple => (
   md: MarkdownIt,
 ) => {
   if (!o || !o.transform) {

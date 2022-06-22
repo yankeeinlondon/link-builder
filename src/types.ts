@@ -1,19 +1,5 @@
 export type NameValueTuple = [name: string, value: string];
 
-export interface LinkOptions {
-  /** The file which is being parsed */
-  file: string;
-  /** the transform function which converts link attributes */
-  transform: LinkTransformer;
-  /** the base URL for all internal links */
-  base?: string;
-}
-
-export type WithTagAndBase<T extends LinkElement> = T & {
-  tagName?: string;
-  _base: string;
-};
-
 /**
  * Represents the common attributes which exist on a _link_
  * element while preserving other non-standard attributes from
@@ -29,6 +15,21 @@ export interface LinkElement {
   [key: string]: unknown;
 }
 
+export interface LinkConfig {
+  /** The file which is being parsed */
+  file: string;
+  /** the transform function which converts link attributes */
+  // eslint-disable-next-line no-use-before-define
+  transform: LinkTransformer;
+  /** the base URL for all internal links */
+  base?: string;
+}
+
+export type WithTagAndBase<T extends LinkElement> = T & {
+  tagName?: string;
+  _base: string;
+};
+
 /**
  * A callback function which is passed a name/value dictionary of
  * properties on a link tag and expects these inputs to be converted
@@ -37,13 +38,15 @@ export interface LinkElement {
  */
 export type LinkTransformer = (link: WithTagAndBase<LinkElement>) => WithTagAndBase<LinkElement>;
 
+
 /**
  * a callback function which is provided a Link's key/value
  * pairs as context and expects a string based response
  */
 export type StringTransformer = (meta: LinkElement) => string;
 
-export interface LinkifyConfig {
+/** the configuration options for the `link-builder` extension */
+export interface LinkOptions {
   /**
    * The relative path to the root of your markdown content; if you're using
    * the `vite-plugin-pages` plugin this would typically be "src/pages" but is
@@ -209,5 +212,4 @@ export interface LinkifyConfig {
    * @default undefined
    */
   postProcessing: LinkTransformer;
-
 }

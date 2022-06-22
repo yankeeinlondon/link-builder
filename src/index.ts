@@ -1,2 +1,2 @@
-export {plugin as default} from "./plugin";
+export { link as default } from "./link";
 export * from "./types";
