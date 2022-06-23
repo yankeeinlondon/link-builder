@@ -16,7 +16,7 @@
   "include": [
     "src",
     "test",
-    "vite.config.ts"
+    "vitest.config.ts"
   ],
   "exclude": [
     "**/dist",

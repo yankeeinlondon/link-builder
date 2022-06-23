@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/consistent-destructuring */
 import { createBuilder } from "vite-plugin-md";
 import { join } from "pathe";
-import { pipe } from "fp-ts/lib/function";
+import { pipe } from "fp-ts/lib/function.js";
 import { normalizePath } from "vite";
 import type { LinkElement , LinkTransformer, LinkOptions, StringTransformer, WithTagAndBase } from "./types";
 import { keys } from "./utils";

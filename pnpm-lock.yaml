@@ -18,6 +18,7 @@ specifiers:
   eslint-plugin-unicorn: ^42.0.0
   esno: ^0.16.3
   fp-ts: ^2.12.1
+  happy-dom: ^5.3.1
   markdown-it: ^13.0.1
   pathe: ^0.3.0
   prettier: ^2.7.1
@@ -50,6 +51,7 @@ devDependencies:
   eslint-plugin-unicorn: 42.0.0_eslint@8.18.0
   esno: 0.16.3
   fp-ts: 2.12.1
+  happy-dom: 5.3.1
   pathe: 0.3.0
   prettier: 2.7.1
   ts-node: 10.8.1_qqpsu5gwjto2muvbbvmj4ndcmu
@@ -57,7 +59,7 @@ devDependencies:
   typescript: 4.7.4
   vite: 2.9.12
   vite-plugin-md: 0.17.4_wie7zz22o3tz6qyv6muewmoury
-  vitest: 0.15.2_@vitest+ui@0.15.2
+  vitest: 0.15.2_7azymxu57z44klc6evlmdvaymi
   vue: 3.2.37
 
 packages:
@@ -3269,7 +3271,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.15.2_@vitest+ui@0.15.2:
+  /vitest/0.15.2_7azymxu57z44klc6evlmdvaymi:
     resolution: {integrity: sha512-cMabuUqu+nNHafkdN7H8Z20+UZTrrUfqjGwAoLwUwrqFGWBz3gXwxndjbLf6mgSFs9lF/JWjKeNM1CXKwtk26w==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -3294,6 +3296,7 @@ packages:
       '@vitest/ui': 0.15.2
       chai: 4.3.6
       debug: 4.3.4
+      happy-dom: 5.3.1
       local-pkg: 0.4.1
       tinypool: 0.1.3
       tinyspy: 0.3.3
