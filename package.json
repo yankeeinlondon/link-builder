@@ -1,6 +1,6 @@
 {
   "name": "@yankeeinlondon/link-builder",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-beta.1",
   "description": "adds contextual classes and features to links in documents used in vite-plugin-md",
   "keywords": [
     "vitejs",
