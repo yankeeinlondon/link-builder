@@ -41,7 +41,8 @@
     "watch": "tsup src/index.ts --format=esm,cjs --dts --watch"
   },
   "dependencies": {
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.1",
+    "vite-plugin-md": "*"
   },
   "devDependencies": {
     "@antfu/ni": "^0.16.2",
@@ -68,13 +69,11 @@
     "tsup": "^6.1.2",
     "typescript": "^4.7.4",
     "vite": "^2.9.12",
-    "vite-plugin-md": "^0.17.4",
-    "vitest": "^0.15.2",
+    "vitest": "^0.16.0",
     "vue": "^3.2.37"
   },
   "peerDependencies": {
     "pathe": "^0.3.0",
-    "vite": "^2.9.12",
-    "vite-plugin-md": "^0.17.4"
+    "vite": "^2.9.12"
   }
 }
