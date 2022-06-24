@@ -1,0 +1,45 @@
+name: "\U0001F41E Bug report"
+description: Report an issue for link-builder
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: Read the [docs](https://github.com/yankeeinlondon/link-builder?README.md).
+          required: true
+        - label: Make sure the issue you have is with this builder and not the core `vite-plugin-md` repo.
+          required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is. If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      placeholder: I am doing ... What I expect is ... What actually happening is ...
+    validations:
+      required: true
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Please provide a link via [vite.new](https://vite.new/vue) or a link to a repo that can reproduce the problem you ran into. A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is required ([Why?](https://antfu.me/posts/why-reproductions-are-required)).
+      placeholder: Reproduction URL and steps
+    validations:
+      required: true
+  - type: dropdown
+    id: package-manager
+    attributes:
+      label: Used Package Manager
+      description: Select the used package manager
+      options:
+        - npm
+        - yarn
+        - pnpm
+    validations:
+      required: true
