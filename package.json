@@ -1,6 +1,6 @@
 {
   "name": "@yankeeinlondon/link-builder",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "adds contextual classes and features to links in documents used in vite-plugin-md",
   "keywords": [
     "vitejs",
@@ -34,11 +34,19 @@
     "lint": "run-p lint:*",
     "lint:src": "eslint src/**/*.ts --fix",
     "lint:test": "eslint test/**/*.ts --fix",
+    "audit:fix": "pnpm audit --fix && pnpm install",
     "prepublishOnly": "npm run build",
-    "release": "bumpp",
+    "release": "run-s release:validate release:bump",
+    "release:validate": "pnpm audit --fix && pnpm test:ci && pnpm install",
+    "release:bump": "bumpp",
     "test": "vitest",
+    "test:ci": "vitest run",
     "test:ui": "vitest:ui",
     "watch": "tsup src/index.ts --format=esm,cjs --dts --watch"
+  },
+  "dependencies": {
+    "vite-plugin-md": "*",
+    "pathe": ">=0.3.0"
   },
   "devDependencies": {
     "@antfu/ni": "^0.17.2",
@@ -48,7 +56,6 @@
     "@typescript-eslint/parser": "^5.29.0",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vitest/ui": "^0.18.1",
-    "bump": "^0.2.5",
     "bumpp": "^8.2.1",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
@@ -61,7 +68,6 @@
     "happy-dom": "^6.0.3",
     "markdown-it": "^13.0.1",
     "npm-run-all": "^4.1.5",
-    "pathe": "^0.3.0",
     "prettier": "^2.7.1",
     "prismjs": "^1.28.0",
     "ts-node": "^10.8.1",
@@ -69,13 +75,9 @@
     "typescript": "^4.7.4",
     "vite": "^3.0.0",
     "vitest": "^0.18.1",
-    "vue": "^3.2.37",
-    "vite-plugin-md": "*"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
-    "markdown-it": ">=13",
-    "pathe": ">=0.3.0",
-    "vite": ">=2.9.0",
-    "vite-plugin-md": ">=16"
+    "markdown-it": ">=13"
   }
 }
