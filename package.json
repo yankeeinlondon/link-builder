@@ -1,6 +1,6 @@
 {
   "name": "@yankeeinlondon/link-builder",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "description": "adds contextual classes and features to links in documents used in vite-plugin-md",
   "keywords": [
     "vitejs",
@@ -34,15 +34,15 @@
     "lint": "run-p lint:*",
     "lint:src": "eslint src/**/*.ts --fix",
     "lint:test": "eslint test/**/*.ts --fix",
-    "audit:fix": "pnpm audit --fix && pnpm install",
     "prepublishOnly": "npm run build",
-    "release": "run-s release:validate release:bump",
-    "release:validate": "pnpm audit --fix && pnpm test:ci && pnpm install",
-    "release:bump": "bumpp",
     "test": "vitest",
     "test:ci": "vitest run",
     "test:ui": "vitest:ui",
-    "watch": "tsup src/index.ts --format=esm,cjs --dts --watch"
+    "watch": "tsup src/index.ts --format=esm,cjs --dts --watch",
+    "audit:fix": "pnpm audit --fix",
+    "release": "run-s lint release:latest test:ci audit:fix release:bump",
+    "release:latest": "pnpm install",
+    "release:bump": "bumpp"
   },
   "dependencies": {
     "vite-plugin-md": "*",
