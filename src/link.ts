@@ -2,8 +2,13 @@
 import { createBuilder } from "vite-plugin-md";
 import { join } from "pathe";
 import { pipe } from "fp-ts/lib/function.js";
-import { normalizePath } from "vite";
-import type { LinkElement , LinkTransformer, LinkOptions, StringTransformer, WithTagAndBase } from "./types";
+import type {
+  LinkElement,
+  LinkTransformer,
+  LinkOptions,
+  StringTransformer,
+  WithTagAndBase,
+} from "./types";
 import { keys } from "./utils";
 import { MdLink } from "./mdi";
 
@@ -20,30 +25,40 @@ const staticRuleLookup = {
   documentClass: /\.(doc|pdf|txt|xls)$/,
 };
 
-function isExternalLink(meta: LinkElement): meta is LinkElement & { href: string } {
+function isExternalLink(
+  meta: LinkElement
+): meta is LinkElement & { href: string } {
   return !!(meta.href && staticRuleLookup.externalLinkClass.test(meta.href));
 }
-function isInternalLink(meta: LinkElement): meta is LinkElement & { href: string } {
+function isInternalLink(
+  meta: LinkElement
+): meta is LinkElement & { href: string } {
   return !!(meta.href && staticRuleLookup.internalLinkClass.test(meta.href));
 }
 
-function strTransform(transformer: string | StringTransformer | undefined, meta: WithTagAndBase<LinkElement>): string | undefined {
+function strTransform(
+  transformer: string | StringTransformer | undefined,
+  meta: WithTagAndBase<LinkElement>
+): string | undefined {
   if (!transformer) {
     return undefined;
   } else if (typeof transformer === "function") {
     return transformer(meta);
   } else {
     return transformer;
-  };
+  }
 }
 
 /** returns an array of classes based on the URL and configuration */
-const addClasses = (c: LinkOptions): LinkTransformer =>
+const addClasses =
+  (c: LinkOptions): LinkTransformer =>
   /** returns an array of classes based on the URL and configuration */
   (lnk) => {
     const classes = keys(staticRuleLookup)
       .flatMap((key) => {
-        if (!lnk.href || !staticRuleLookup[key].test(lnk.href)) {return;};
+        if (!lnk.href || !staticRuleLookup[key].test(lnk.href)) {
+          return;
+        }
 
         switch (typeof c[key]) {
           case "function":
@@ -53,7 +68,9 @@ const addClasses = (c: LinkOptions): LinkTransformer =>
           case "undefined":
             return;
           default:
-            throw new Error(`Unexpected property type for property ${key} [${typeof c[key]}]`);
+            throw new Error(
+              `Unexpected property type for property ${key} [${typeof c[key]}]`
+            );
         }
       })
       // remove undefined values
@@ -63,15 +80,18 @@ const addClasses = (c: LinkOptions): LinkTransformer =>
       for (const rc of c.ruleBasedClasses) {
         const [rule, klass] = rc;
 
-        if (rule.test(lnk.href as string)) {lnk.class = [lnk.class, klass].join(" ");};
-      };
+        if (rule.test(lnk.href as string)) {
+          lnk.class = [lnk.class, klass].join(" ");
+        }
+      }
     }
 
     return { ...lnk, class: [lnk.class, ...classes].join(" ") };
   };
 
 /** adds "target" and "rel" properties to links */
-const addTargetingAndRel = (c: LinkOptions): LinkTransformer =>
+const addTargetingAndRel =
+  (c: LinkOptions): LinkTransformer =>
   /** adds "target" and "rel" properties to links */
   (lnk) => {
     if (isExternalLink(lnk)) {
@@ -87,18 +107,31 @@ const addTargetingAndRel = (c: LinkOptions): LinkTransformer =>
   };
 
 /** works on URL structure and messages based on config */
-const cleanupAndCloseOut = (c: LinkOptions): LinkTransformer =>
+const cleanupAndCloseOut =
+  (c: LinkOptions): LinkTransformer =>
   /** works on URL structure and messages based on config */
   (lnk) => {
     if (isInternalLink(lnk)) {
-      if (lnk.href && lnk.href.trim().endsWith("index.md") && c.cleanIndexRoutes) {
+      if (
+        lnk.href &&
+        lnk.href.trim().endsWith("index.md") &&
+        c.cleanIndexRoutes
+      ) {
         lnk.href = lnk.href.replace(/index\.md\s*/, "");
-      } else if (lnk.href && lnk.href.trim().endsWith(".md") && c.cleanAllRoutes) {
-        {lnk.href = lnk.href.replace(/(\S+)\.md$/, "$1");};
+      } else if (
+        lnk.href &&
+        lnk.href.trim().endsWith(".md") &&
+        c.cleanAllRoutes
+      ) {
+        {
+          lnk.href = lnk.href.replace(/(\S+)\.md$/, "$1");
+        }
       }
 
       const removal = new RegExp(`.*${c.rootDir}`);
-      if (isInternalLink(lnk)) {lnk.href = normalizePath(join(lnk._base.replace(removal, ""), lnk.href));};
+      if (isInternalLink(lnk)) {
+        lnk.href = join(lnk._base.replace(removal, ""), lnk.href);
+      }
 
       if (lnk.tagName === "a" && c.useRouterLinks) {
         lnk = {
@@ -134,7 +167,10 @@ export const link = createBuilder("link", "parser")
   // which will call our `transform` function on each instance of a link element
   // discovered and allow mutation.
   .handler(async (p, o) => {
-    const { fileName, viteConfig: { base } } = p;
+    const {
+      fileName,
+      viteConfig: { base },
+    } = p;
     // merge default settings with user settings
     const options: LinkOptions = {
       rootDir: "src/pages",
@@ -157,7 +193,7 @@ export const link = createBuilder("link", "parser")
       useRouterLinks: true,
       cleanIndexRoutes: true,
       cleanAllRoutes: true,
-      postProcessing: f => f,
+      postProcessing: (f) => f,
 
       ...o,
     };
@@ -177,7 +213,7 @@ export const link = createBuilder("link", "parser")
         classes,
         targeting,
         cleanup,
-        postProcessing,
+        postProcessing
       );
     };
 
@@ -189,9 +225,20 @@ export const link = createBuilder("link", "parser")
     return p;
   })
   .meta({
-    description: "provides default classes for all links based on protocol, content-type, and whether internal or external; also converts <a> tags to <router-links> and cleans up relative paths.",
+    description:
+      "provides default classes for all links based on protocol, content-type, and whether internal or external; also converts <a> tags to <router-links> and cleans up relative paths.",
     parserRules: [
-      { ruleName: "link_open", usage: "patches", description: "allows attributes to modified on link DOM elements, including changing the tag's name from <a> to <router-link>" },
-      { ruleName: "link_close", usage: "patches", description: "used to make sure end tag has a matching tag name to start tag" },
+      {
+        ruleName: "link_open",
+        usage: "patches",
+        description:
+          "allows attributes to modified on link DOM elements, including changing the tag's name from <a> to <router-link>",
+      },
+      {
+        ruleName: "link_close",
+        usage: "patches",
+        description:
+          "used to make sure end tag has a matching tag name to start tag",
+      },
     ],
   });
