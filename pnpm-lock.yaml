@@ -34,6 +34,7 @@ specifiers:
 
 dependencies:
   '@yankeeinlondon/happy-wrapper': 2.4.0_happy-dom@6.0.4
+  pathe: 0.3.2
   vite-plugin-md: 0.18.1_ms3y4te6ttrkfdyfwkiimgjdfa
 
 devDependencies:
@@ -56,7 +57,6 @@ devDependencies:
   happy-dom: 6.0.4
   markdown-it: 13.0.1
   npm-run-all: 4.1.5
-  pathe: 0.3.2
   prettier: 2.7.1
   prismjs: 1.28.0
   ts-node: 10.9.1_kmhzd2ra25a2aeanupbqenugla
@@ -2492,7 +2492,7 @@ packages:
 
   /pathe/0.3.2:
     resolution: {integrity: sha512-qhnmX0TOqlCvdWWTkoM83wh5J8fZ2yhbDEc9MlsnAEtEc+JCwxUKEwmd6pkY9hRe6JR1Uecbc14VcAKX2yFSTA==}
-    dev: true
+    dev: false
 
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}

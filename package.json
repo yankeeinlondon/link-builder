@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@yankeeinlondon/happy-wrapper": "^2.4.0",
+    "pathe": "^0.3.2",
     "vite-plugin-md": "*"
   },
   "devDependencies": {
@@ -84,7 +85,6 @@
     "vue": "^3.2.37"
   },
   "peerDependencies": {
-    "markdown-it": ">=13",
-    "pathe": ">=0.3.0"
+    "markdown-it": ">=13"
   }
 }
