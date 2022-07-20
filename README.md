@@ -1,5 +1,7 @@
 # Link Builder for `vite-plugin-md`
 
+> This repo is hosted externally but _provided_ as a "built-in" part of the [**vite-plugin-md**](https://github.com/antfu/vite-plugin-md) plugin.
+
 Provides a power-user features for the _links_ in your `vite-plugin-md` documents.
 
 ## Usage
