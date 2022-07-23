@@ -51,11 +51,11 @@
   },
   "dependencies": {
     "@yankeeinlondon/happy-wrapper": "^2.4.0",
+    "@yankeeinlondon/builder-api": "^0.3.0",
     "pathe": "^0.3.2"
   },
   "peerDependencies": {
-    "markdown-it": ">=13",
-    "vite-plugin-md": "*"
+    "markdown-it": ">=13"
   },
   "devDependencies": {
     "@antfu/ni": "^0.17.2",
