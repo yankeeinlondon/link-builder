@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/consistent-destructuring */
-import { createBuilder } from "vite-plugin-md";
+import { createBuilder } from "@yankeeinlondon/builder-api";
 import { join } from "pathe";
 import { pipe } from "fp-ts/lib/function.js";
 import type {
