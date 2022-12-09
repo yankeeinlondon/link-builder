@@ -145,7 +145,7 @@ export interface LinkOptions {
 
   /**
    * allows you to specify what `target` property external links
-   * will be openned up in.
+   * will be opened up in.
    *
    * @default "_blank"
    */
@@ -159,7 +159,7 @@ export interface LinkOptions {
 
   /**
    * allows you to specify what `target` property external links
-   * will be openned up in.
+   * will be opened up in.
    *
    * @default undefined
    */
