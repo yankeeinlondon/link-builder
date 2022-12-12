@@ -47,7 +47,7 @@
     "release:bump": "bumpp"
   },
   "dependencies": {
-    "@yankeeinlondon/builder-api": "^0.5.8",
+    "@yankeeinlondon/builder-api": "^1.2.0",
     "@yankeeinlondon/happy-wrapper": "^2.10.1"
   },
   "devDependencies": {
