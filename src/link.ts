@@ -61,16 +61,20 @@ const addClasses =
         }
 
         switch (typeof c[key]) {
-          case "function":
+          case "function": {
             return (c[key] as StringTransformer)(lnk);
-          case "string":
+          }
+          case "string": {
             return c[key] as string;
-          case "undefined":
+          }
+          case "undefined": {
             return;
-          default:
+          }
+          default: {
             throw new Error(
               `Unexpected property type for property ${key} [${typeof c[key]}]`
             );
+          }
         }
       })
       // remove undefined values
